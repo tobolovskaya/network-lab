@@ -92,6 +92,6 @@ ip access-list extended GJEST-INN
 
 ---
 
-**Yevheniia Tobolovska** · IT operations and security · [Portfolio](https://my-portfolio-yevheniia-tobolovskas-projects.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/yevheniia-tobolovska)
+**Yevheniia Tobolovska** · IT operations and security · [Portfolio](https://tobolovska.no) · [LinkedIn](https://www.linkedin.com/in/yevheniia-tobolovska)
 
 License: [MIT](LICENSE)
