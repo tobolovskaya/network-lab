@@ -1,0 +1,27 @@
+! R1 - Cisco 2901 - router-on-a-stick and guest ACL
+enable
+configure terminal
+no ip domain-lookup
+hostname R1
+interface GigabitEthernet0/0
+ no shutdown
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
+!
+! Guests may reach the internet, but not servers or staff
+ip access-list extended GJEST-INN
+ remark Gjester: kun internett, ingen interne nett
+ deny   ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+ deny   ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 any
+interface GigabitEthernet0/0.20
+ ip access-group GJEST-INN in
+end
+write memory
